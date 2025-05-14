@@ -23,9 +23,9 @@ export const SearchProvider = ({ children }) => {
         // Busca dados do usuário
 
         const resUser = await fetch(`https://api.github.com/users/${user}`, {
-          headers: {
-            Authorization: `token ${token}`,
-          },
+          // headers: {
+          //   Authorization: `token ${token}`,
+          // },
         });
 
         if (!resUser.ok) throw new Error("Usuário não encontrado");
@@ -36,11 +36,11 @@ export const SearchProvider = ({ children }) => {
         // Busca repositórios do usuário
         const resRepos = await fetch(
           `https://api.github.com/users/${user}/repos?per_page=100&sort=updated`,
-          {
-            headers: {
-              Authorization: `token ${token}`,
-            },
-          }
+          // {
+          //   headers: {
+          //     Authorization: `token ${token}`,
+          //   },
+          // }
         );
 
         if (!resRepos.ok) throw new Error("Repositórios não encontrados");
