@@ -7,13 +7,11 @@ import Details from "./layout/Details";
 
 function App() {
   return (
-    <Router>
       <div className="flex">
         <MenuDesktop />
         <HeaderMobile/>
         <Rotas />
       </div>
-    </Router>
   );
 }
 

@@ -19,7 +19,7 @@ const NavBar = () => {
   return (
     <nav className="flex gap-0.5 flex-col justify-center  items-center text-sm text-neutral-700">
       <Link
-        to={"/github-dashboard/"}
+        to={"/"}
         className={`flex rounded-lg w-full  items-center ps-4 py-3 ${
           location.pathname === "/" ? "bg-neutral-100" : ""
         }`}
@@ -28,7 +28,7 @@ const NavBar = () => {
         Dashboard
       </Link>
       <Link
-        to={"/github-dashboard/repositorios"}
+        to={"/repositorios"}
         className={`flex rounded-lg w-full justify-between items-center ps-4 py-3 ${
           location.pathname === "/repositorios" ? "bg-neutral-100" : ""
         }`}
@@ -42,7 +42,7 @@ const NavBar = () => {
         </span>
       </Link>
       <Link
-        to={"/github-dashboard/deploys"}
+        to={"/deploys"}
         className={`flex justify-between rounded-lg w-full  items-center ps-4 py-3 ${
           location.pathname === "/deploys" ? "bg-neutral-100" : ""
         }`}

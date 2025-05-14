@@ -5,12 +5,12 @@ import Deploys from "./Deploys";
 
 export function Rotas() {
   return (
-    <HashRouter>
+    // <HashRouter>
       <Routes>
         <Route path="/" element={<Overview />}></Route>
         <Route path="/repositorios" element={<Repositorio />}></Route>
         <Route path="/deploys" element={<Deploys />}></Route>
       </Routes>
-    </HashRouter>
+    // </HashRouter>
   );
 }
