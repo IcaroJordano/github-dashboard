@@ -4,9 +4,12 @@ import logo from "../assets/logo2.png";
 import { CiLocationOn } from "react-icons/ci";
 import { SearchContext } from "../context/SearchContext";
 import { BiSearch, BiX } from "react-icons/bi";
+import Details from "../layout/Details";
 
 const Repositorio = () => {
+  const [repositorio, setRepositorio] = useState();
   const [searchRepositorios, setSearchRepositorios] = useState('');
+  const [isClose, setIsClose] = useState(true);
 
   const [dataUser, setDataUser] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -74,11 +77,10 @@ const Repositorio = () => {
         {!isLoading &&
           repositoriosFiltrados.map((repositorio, index) => (
             <CardRepositorio
-              language={repositorio.language || null}
-              key={index}
-              title={repositorio.name}
-              description={repositorio.description}
-            time={repositorio.pushed_at}
+
+            repositorio={repositorio}
+            setRepositorio={setRepositorio}
+            setIsClose={setIsClose}
 
             />
           ))}
@@ -94,6 +96,8 @@ const Repositorio = () => {
           </>
         )}
       </div>
+      <Details isOpen={isClose} setIsOpen={setIsClose} repositorio={repositorio} />
+
     </section>
   );
 };

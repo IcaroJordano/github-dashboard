@@ -4,12 +4,18 @@ import logo from "../assets/logo2.png";
 import { CiLocationOn } from "react-icons/ci";
 import { SearchContext } from "../context/SearchContext";
 import { BiSearch, BiX } from "react-icons/bi";
+import Details from "../layout/Details";
 
 const Deploys = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchDeploy, setSearchDeploy] = useState('');
+  const [isClose, setIsClose] = useState(true);
+  const [repositorio, setRepositorio] = useState();
+
 
   const { searchValue, isLoading,setSearchValue, userName,repositorios } = useContext(SearchContext);
+
+
 
   const deploys = repositorios
   ? repositorios.filter(
@@ -19,10 +25,13 @@ const Deploys = () => {
     )
   : [];
 
+  useEffect(()=>{
+    console.log(deploys)},[deploys])
+
 
   return (
     <section className=" mt-16 lg:mt-0 pt-4 bg-neutral-100 relative min-h-screen overflow-x-hidden">
-      <div className="ms-4 lg:ms-6 flex-col lg:flex-row w-full  justify-between lg:items-center">
+      <div className="ms-4 lg:ms-6 flex flex-col lg:flex-row w-full  justify-between lg:items-center">
         <h2 className="text-2xl font-semibold" >Deploys</h2>
         <div
           className={`w-86   items-center me-16  my-8  flex   transition-all duration-500     border border-neutral-900/20  rounded-lg h-10 ps-4 bg-neutral-50 `}
@@ -71,12 +80,9 @@ const Deploys = () => {
         {!isLoading &&
           deploys.map((repositorio, index) => (
             <CardRepositorio
-              language={repositorio.language || null}
-              key={index}
-              title={repositorio.name}
-              description={repositorio.description}
-            time={repositorio.pushed_at}
-
+              repositorio={repositorio}
+              setRepositorio={setRepositorio}
+              setIsClose={setIsClose}
             />
           ))}
 
@@ -91,6 +97,8 @@ const Deploys = () => {
           </>
         )}
       </div>
+      <Details isOpen={isClose} setIsOpen={setIsClose} repositorio={repositorio} />
+
     </section>
   );
 };
