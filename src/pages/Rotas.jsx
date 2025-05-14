@@ -6,9 +6,9 @@ import Deploys from "./Deploys";
 export function Rotas() {
   return (
     <Routes>
-      <Route path="/" element={<Overview />}></Route>
-      <Route path="/repositorios" element={<Repositorio/>}></Route>
-      <Route path="/deploys" element={<Deploys/>}></Route>
+      <Route path="/github-dashboard/" element={<Overview />}></Route>
+      <Route path="/github-dashboard/repositorios" element={<Repositorio/>}></Route>
+      <Route path="/github-dashboard/deploys" element={<Deploys/>}></Route>
     </Routes>
   );
 }
